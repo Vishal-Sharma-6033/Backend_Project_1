@@ -1,23 +1,46 @@
-import Router from 'express';
-import { loginUser, logoutUser, refreshAccessToken, registerUser } from '../controllers/user.controllers.js';
-import {upload} from '../middlewares/multer.middlewares.js';
-import { verifyJWT } from '../middlewares/auth.middlewares.js';
+import Router from "express";
+import {
+  changeCrrnetPassword,
+  getCurrentUserDetails,
+  getUserProfileDetails,
+  getWatchHistory,
+  loginUser,
+  logoutUser,
+  refreshAccessToken,
+  registerUser,
+  updateAccountDetails,
+  updateAvatar,
+  updateCoverImage,
+} from "../controllers/user.controllers.js";
+import { upload } from "../middlewares/multer.middlewares.js";
+import { verifyJWT } from "../middlewares/auth.middlewares.js";
 
 const router = Router();
 
-router.route('/register').post(
-    upload.fields([
-        { name: 'avatar', maxCount: 1 },
-        { name: 'coverImage', maxCount: 1 }
-    ]),
-    
-    registerUser)
+router.route("/register").post(
+  upload.fields([
+    { name: "avatar", maxCount: 1 },
+    { name: "coverImage", maxCount: 1 },
+  ]),
 
-    
-router.route('/login').post(loginUser)
+  registerUser
+);
+
+router.route("/login").post(loginUser);
 
 //Secured Routes
-router.route('/logout').post(verifyJWT,logoutUser)
-router.route('/refresh-token').post(refreshAccessToken)
+router.route("/logout").post(verifyJWT, logoutUser);
+router.route("/refresh-token").post(refreshAccessToken);
+router.route("/change-password").post(verifyJWT, changeCrrnetPassword);
+router.route("/current-user").get(verifyJWT, getCurrentUserDetails);
+router.route("/update-account").patch(verifyJWT, updateAccountDetails);
+router
+  .route("/update-avatar")
+  .patch(verifyJWT, upload.single("avatar"), updateAvatar);
+router
+  .route("/update-cover-image")
+  .patch(verifyJWT, upload.single("coverImage"), updateCoverImage);
+router.route("/c/:username").get(verifyJWT, getUserProfileDetails);
+router.route("/watch-history").get(verifyJWT, getWatchHistory);
 
 export default router;
