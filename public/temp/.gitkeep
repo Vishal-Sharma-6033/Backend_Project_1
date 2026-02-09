@@ -1,0 +1,22 @@
+// 7. MOST USED METHODS IN REALTIME PROJECTS:
+// find()
+// findById()
+// create()
+// save()
+// findByIdAndUpdate()
+// findByIdAndDelete()
+// deleteOne()
+// populate()
+// aggregate()
+// countDocuments()
+
+
+
+
+// ✅ When You SHOULD Use Aggregation (Important)
+// Use aggregation when:
+// ✅ You need grouping
+// ✅ You need counting or calculations
+// ✅ You need data from multiple collections
+// ✅ You need analytics or reports
+// ✅ You need sorting based on calculated values
