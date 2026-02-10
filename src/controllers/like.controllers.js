@@ -40,7 +40,7 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
   }
 
   const existingLike = await Like.findOne({
-    video: commentId,
+    comment: commentId,
     likedBy: req.user._id,
   });
   // UNLIKE
@@ -68,7 +68,7 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
   }
 
   const existingLike = await Like.findOne({
-    video: tweetId,
+    tweet: tweetId,
     likedBy: req.user._id,
   });
   // UNLIKE
