@@ -6,7 +6,6 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 const toggleVideoLike = asyncHandler(async (req, res) => {
   const { videoId } = req.params;
-  console.log(videoId);
   if (!isValidObjectId(videoId)) {
     throw new ApiError(401, "Invalid video id");
   }

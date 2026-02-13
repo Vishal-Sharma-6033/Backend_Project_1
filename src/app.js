@@ -26,6 +26,7 @@ import commentRouter from "./routes/comment.routes.js"
 import likeRouter from "./routes/like.routes.js"
 import playlistRoter from "./routes/playlist.routes.js"
 import deshBoardRouter from "./routes/deshBoard.routes.js"
+import subscriptionRouter from "./routes/subscription.routes.js"
 
 //Use Routes
 app.use("/api/v1/users",userRoutes);
@@ -35,7 +36,7 @@ app.use("/api/v1/comments",commentRouter );
 app.use("/api/v1/likes",likeRouter);
 app.use("/api/v1/playlist",playlistRoter);
 app.use("/api/v1/deshboard",deshBoardRouter);
-
+app.use("/api/v1/subscriptions", subscriptionRouter)
 
  
 export { app } 
