@@ -25,12 +25,17 @@ import tweetRoutes from "./routes/tweet.routes.js";
 import commentRouter from "./routes/comment.routes.js"
 import likeRouter from "./routes/like.routes.js"
 import playlistRoter from "./routes/playlist.routes.js"
+import deshBoardRouter from "./routes/deshBoard.routes.js"
+
 //Use Routes
 app.use("/api/v1/users",userRoutes);
 app.use("/api/v1/videos",videoRoutes);
 app.use("/api/v1/tweets",tweetRoutes);
 app.use("/api/v1/comments",commentRouter );
-app.use("/api/v1/likes",likeRouter)
-app.use("/api/v1/playlist",playlistRoter)
+app.use("/api/v1/likes",likeRouter);
+app.use("/api/v1/playlist",playlistRoter);
+app.use("/api/v1/deshboard",deshBoardRouter);
+
+
  
 export { app } 
