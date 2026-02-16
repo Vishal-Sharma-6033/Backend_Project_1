@@ -36,7 +36,9 @@ app.use("/api/v1/comments",commentRouter );
 app.use("/api/v1/likes",likeRouter);
 app.use("/api/v1/playlist",playlistRoter);
 app.use("/api/v1/deshboard",deshBoardRouter);
-app.use("/api/v1/subscriptions", subscriptionRouter)
+app.use("/api/v1/subscriptions", subscriptionRouter);
+
+
 
  
 export { app } 
